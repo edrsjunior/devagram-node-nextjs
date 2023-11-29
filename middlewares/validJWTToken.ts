@@ -41,6 +41,7 @@ export const validJWTToken = (handler : NextApiHandler) =>
         req.query.userId = decode._id;
     }
 
+
         } catch (error) {
             console.log(error);
             return res.status(401).json({error : 'Access token not valided, user not authorized'});
