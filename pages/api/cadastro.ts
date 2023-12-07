@@ -4,6 +4,11 @@ import type {CadastroUserReq} from '../../types/CadastroUserReq';
 import {UsuarioModel} from '../../models/userModel';
 import {conectarMongoDB} from '../../middlewares/conectaMongoDB';
 import md5 from 'md5';
+import { uploadImagemCosmic, upload } from "../../services/uploadImagemCosmic";
+import nc from 'next-connect';
+
+const handler = nc()
+    .use()
 
 const endpointCadastro = 
 async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg>) => {

@@ -1,5 +1,5 @@
 import multer from "multer";
-import comsmicjs from comsmicjs;
+import comsmicjs from "comsmicjs";
 import { createBucketClient } from '@cosmicjs/sdk';
 
 
@@ -21,19 +21,11 @@ const storage = multer.memoryStorage();
 const upload = multer({storage : storage});
 
 const uploadImagemCosmic = async(req: any) =>{
-
-    // Fetch content
-    await bucketDevagram.objects
-    .find({
-    type: 'posts',
-    })
-    .limit(1);
-
     if (req?.file?.originalmame) {
         const media_object = {
-            originalName: req.file.originalmame,
+            originalname: req.file.originalname,
             buffer : req.file.buffer
-        }
+        };
 
         if (req.url && req.url.includes('publicacao')) {
             return await bucketDevagram.media.insertOne({
