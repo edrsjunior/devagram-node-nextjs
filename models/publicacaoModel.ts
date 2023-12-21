@@ -13,5 +13,5 @@ const PublicacaoSchema = new Schema({
     
 });
 
-export const PublicacaoModel = (mongoose.models.publicaoes || 
-    mongoose.model('publicacoes', PublicacaoSchema));
+export const PublicacaoModel = mongoose.models.publicacoes || 
+    mongoose.model('publicacoes', PublicacaoSchema);
