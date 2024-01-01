@@ -18,7 +18,7 @@ const handler = nc()
                 return res.status(400).json({error : 'Usuario not found'});
             }
 
-            const {nome} = req.body;
+            const {nome} = req?.body;
             if (nome && nome.length > 2) {
                 usuario.nome = nome;
             }
@@ -37,7 +37,7 @@ const handler = nc()
 
         } catch (e) {
             console.log(e);
-            return res.status(400).json({error : 'Nao foi possivel salvar o usuario'});
+            return res.status(400).json({error : 'Nao foi possivel salvar o usuario' + e});
 
         }
         
