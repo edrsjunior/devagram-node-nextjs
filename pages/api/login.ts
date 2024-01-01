@@ -5,6 +5,7 @@ import type { LoginResposta } from "../../types/LoginResposta";
 import md5 from 'md5';
 import { UsuarioModel } from "../../models/userModel";
 import jwt from 'jsonwebtoken';
+import { corsPolicy } from "../../middlewares/corsPolicy";
 
 
 const endpointLogin =  async (
@@ -38,4 +39,4 @@ const endpointLogin =  async (
     return res.status(405).json({error:"Metodo informado not allowed"});
 }
 
-export default conectarMongoDB(endpointLogin);
+export default corsPolicy(conectarMongoDB(endpointLogin));

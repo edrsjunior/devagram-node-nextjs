@@ -4,6 +4,7 @@ import { validJWTToken } from "../../middlewares/validJWTToken";
 import type { RespostaPadraoMsg } from "../../types/RespostaPadraoMsg";
 import { UsuarioModel } from "../../models/userModel";
 import { SeguidorModel } from "../../models/SeguidorModel";
+import { corsPolicy } from "../../middlewares/corsPolicy";
 
 const endpointSeguir = async (req: NextApiRequest, res: NextApiResponse<RespostaPadraoMsg>) => {
     try {
@@ -65,4 +66,4 @@ const endpointSeguir = async (req: NextApiRequest, res: NextApiResponse<Resposta
     }
 }
 
-export default validJWTToken(conectarMongoDB(endpointSeguir));
+export default corsPolicy(validJWTToken(conectarMongoDB(endpointSeguir)));
